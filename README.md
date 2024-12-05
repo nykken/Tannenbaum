@@ -11,13 +11,13 @@ If your tree is large enough, you might spot additional ASCII art, such as prese
 
 To compile the program, use the following command:
 
-gcc -std=c89 -o tree tree.c tree_utility.c fluff.c snow.c arg_parser.c error_handling.c
+    gcc -std=c89 -o tree tree.c tree_utility.c fluff.c snow.c arg_parser.c error_handling.c
 
 ## Usage
 
 To run the program, use the following command syntax:
 
-./tree [-t tree_height] [-s snow_mode]
+    ./tree [-t tree_height] [-s snow_mode]
 
 Where:
 
