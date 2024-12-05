@@ -20,10 +20,10 @@ Where:
 
 -s snow_mode: Optional argument to control the snow effect. You can choose from the following modes:
 
-- f: Snow in the foreground of the picture (default if no argument is provided).
-- b: Snow in the background of the picture.
-- a: "Acid" snow — watch the picture slowly get destroyed by snowflakes (this was definitely not a bug that I thought looked cool).
-- n: No snow effect.
+    f: Snow in the foreground of the picture (default if no argument is provided).
+    b: Snow in the background of the picture.
+    a: "Acid" snow — watch the picture slowly get destroyed by snowflakes (this was definitely not a bug that I thought looked cool).
+    n: No snow effect.
 
 
 
