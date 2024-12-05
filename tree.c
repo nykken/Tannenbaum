@@ -8,6 +8,7 @@
 #include "fluff.h"
 #include "snow.h"
 #include "arg_parser.h"
+#include "error_handling.h"
 
 int main(int argc, char* argv[])
 {
@@ -38,8 +39,7 @@ int main(int argc, char* argv[])
     if (copy == NULL)
     {
         free(picture);
-        fprintf(stderr, "Memory allocation failed");
-        exit(1);
+        malloc_error();
     }
     
     if (arguments.snow_mode == 'a')

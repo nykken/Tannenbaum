@@ -6,6 +6,7 @@
 #include "tree_utility.h"
 #include "constants.h"
 #include "fluff.h"
+#include "error_handling.h"
 
 const char STARS[] = {'*', '@', '&', 'o', '+', '$', 's'};
 const char ORNAMENTS[] = {'%', 'O', '#'};
@@ -64,8 +65,7 @@ Cell **malloc_picture(Dimensions dimensions)
     picture = malloc(height * sizeof(Cell *));
     if (picture == NULL) 
     {
-        fprintf(stderr, "Memory allocation failed");
-        exit(1);
+        malloc_error();
     }
 
     for (i = 0; i < height; i++) 
@@ -73,12 +73,12 @@ Cell **malloc_picture(Dimensions dimensions)
         picture[i] = malloc(width * sizeof(Cell));
         if (picture[i] == NULL) 
         {
-            for (k = 0; k < i; k++) {
+            for (k = 0; k < i; k++) 
+            {
                 free(picture[k]); 
             }
             free(picture); 
-            fprintf(stderr, "Memory allocation failed");
-            exit(1);
+            malloc_error();
         }
     }
 
@@ -132,8 +132,13 @@ int get_trunk_width(int tree_height)
         return 5;
     }
     /* if invalid tree size */
-    printf("Error: Invalid tree size %d\n (get_trunk_width)", tree_height);
-    exit(1);
+    else
+    {
+        size_error("Invalid tree size");
+        /* unreachable but the compiler does not know it */
+        return -1;
+    }
+
 }
 
 int get_trunk_height(int tree_height)
@@ -155,8 +160,9 @@ int get_trunk_height(int tree_height)
         return 4;
     }
     /* if invalid tree size */
-    printf("Error: Invalid tree size %d\n (get_trunk_height)", tree_height);
-    exit(1);
+    size_error("Invalid tree size");
+    /* unreachable but the compiler does not know it */
+    return -1;
 }
 
 int get_star_height(int tree_height)
@@ -169,9 +175,12 @@ int get_star_height(int tree_height)
     {
         return 3;
     }
-    /* if invalid tree size */
-    printf("Error: Invalid tree size %d\n (get_star_height)", tree_height);
-    exit(1);
+    else
+    {   
+    size_error("Invalid tree size");
+    /* unreachable but the compiler does not know it */
+    return -1;
+    }
 }
 
 int get_picture_height(int tree_height)
@@ -282,8 +291,7 @@ void add_star(Cell **picture, Dimensions dimensions)
         if (star_column - 3 < 0 ||
         star_column + 3 >= dimensions.picture_width - 1)
         {
-            printf("Index error (add_star)");
-            exit(1);
+            index_error("add_star");
         }
         picture[0][star_column - 2].symbol = '\\';
         picture[0][star_column - 2].color = BRIGHT_YELLOW;
@@ -304,8 +312,7 @@ void add_star(Cell **picture, Dimensions dimensions)
     else
     /* invalid star height */
     {  
-        printf("Invalid star height");
-        exit(1);
+        size_error("Invalid star height");
     }
 }
 

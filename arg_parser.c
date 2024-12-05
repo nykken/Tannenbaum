@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "arg_parser.h"
+#include "error_handling.h"
 
 void print_usage(const char *prog_name) 
 {
     fprintf(stderr, "Usage: %s [-h tree_height] [-s snow_mode]\n", prog_name);
     fprintf(stderr, "  -t tree_height   : Tree height (optional, between 3 and 17)\n");
-    fprintf(stderr, "  -s snow_mode     : Snow mode (optional, 'a' (acid), 'f' (in foreground), \n'b' (in background) or 'n' (none))\n");
+    fprintf(stderr, "  -s snow_mode     : Snow mode (optional, 'a' (acid), 'f' (in foreground), 'b' (in background) or 'n' (none))\n");
 }
 
 Arguments parse_arg(int argc, char *argv[])
@@ -36,17 +37,13 @@ Arguments parse_arg(int argc, char *argv[])
                     }
                     else
                     {
-                        fprintf(stderr, "Error: tree_height must be between 3 and 17.\n");
-                        print_usage(argv[0]);
-                        exit(1);
+                        arg_error(argv[0], "tree_height must be between 3 and 17.");
                     }
                     i++;
                 }
                 else
                 {
-                    fprintf(stderr, "Error: missing value for -t tree_height.\n");
-                    print_usage(argv[0]);
-                    exit(1);
+                    arg_error(argv[0], "missing value for -t tree_height.");
                 }
             }
             else if (strcmp(argv[i], "-s") == 0)
@@ -61,17 +58,13 @@ Arguments parse_arg(int argc, char *argv[])
                     }
                     else
                     {
-                        fprintf(stderr, "Error: snow_mode must be 'a', 'f', 'b', or 'n'.\n");
-                        print_usage(argv[0]);
-                        exit(1);
+                        arg_error(argv[0], "snow_mode must be 'a', 'f', 'b', or 'n'.");
                     }
                     i++;
                 }
                 else
                 {
-                    fprintf(stderr, "Error: missing value for -s snow_mode.\n");
-                    print_usage(argv[0]);
-                    exit(1);
+                    arg_error(argv[0], "missing value for -s snow_mode.");
                 }
             }
             else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0)
@@ -81,9 +74,7 @@ Arguments parse_arg(int argc, char *argv[])
             }
             else
             {
-                fprintf(stderr, "Error: unknown argument '%s'.\n", argv[i]);
-                print_usage(argv[0]);
-                exit(1);
+                arg_error(argv[0], "unknown argument.");
             }
         }
     }

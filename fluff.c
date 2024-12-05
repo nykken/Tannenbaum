@@ -4,6 +4,7 @@
 #include "tree_utility.h"
 #include "constants.h"
 #include "fluff.h"
+#include "error_handling.h"
 
 void add_fluff(Cell **picture, Dimensions dimensions)
 {
@@ -60,8 +61,9 @@ void add_gift(Cell **picture, Dimensions dimensions)
         add_large_gift(picture, dimensions, colors); 
     }
     else
+    /* for debugging purposes */
     {
-        printf("Invalid trunk height for gift");
+        size_error("Invalid trunk height for gift");
     }
     return;
 }
@@ -183,9 +185,9 @@ void add_critter(Cell **picture, Dimensions dimensions)
     char *cloak_color = BRIGHT_RED;
 
     if (dimensions.tree_height != 17)
+    /* for debugging purposes */
     {
-        printf("Invalid tree dimensions for Critter!");
-        return;
+        size_error("Invalid height for critter");
     }
     else
     {
