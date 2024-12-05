@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "error_handling.h"
 #include "arg_parser.h"
 

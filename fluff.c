@@ -65,7 +65,6 @@ void add_gift(Cell **picture, Dimensions dimensions)
     {
         size_error("Invalid trunk height for gift");
     }
-    return;
 }
 
 Colors pick_gift_colors(char *gift_colors[6])
@@ -158,7 +157,6 @@ void add_large_gift(Cell **picture, Dimensions dimensions, Colors colors)
             }
         }
     }
-    return;
 }
 
 int include_owl(Dimensions dimensions)
@@ -185,7 +183,6 @@ void add_critter(Cell **picture, Dimensions dimensions)
     char *cloak_color = BRIGHT_RED;
 
     if (dimensions.tree_height != 17)
-    /* for debugging purposes */
     {
         size_error("Invalid height for critter");
     }

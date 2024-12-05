@@ -16,7 +16,7 @@ To run the program, use the following command syntax:
 
 Where:
 
--t tree_height: Optional argument to specify the height of the tree. It must be an integer between 3 and 17. If not provided, the program will randomly generate a tree height within this range.
+-t tree_height: Optional argument to specify the height of the tree. It must be an integer between 3 and 17.
 
 -s snow_mode: Optional argument to control the snow effect. You can choose from the following modes:
 
