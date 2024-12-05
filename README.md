@@ -7,6 +7,11 @@ This program generates a randomly-sized ASCII art christmas tree. The program al
 
 If your tree is large enough, you might spot additional ASCII art, such as presents, an owl, or a mysterious creature carrying a gift.
 
+## Compilation
+
+To compile the program, use the following command:
+
+gcc -std=c89 -o tree tree.c tree_utility.c fluff.c snow.c arg_parser.c error_handling.c
 
 ## Usage
 
