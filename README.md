@@ -25,5 +25,9 @@ Where:
     a: "Acid" snow — watch the picture slowly get destroyed by snowflakes (this was definitely not a bug that I thought looked cool).
     n: No snow effect.
 
+## Note
+
+The animated snow effects run indefinitely. To stop the animation, press Ctrl+C.
+
 
 
