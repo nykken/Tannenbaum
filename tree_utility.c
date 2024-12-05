@@ -66,23 +66,27 @@ Cell **malloc_picture(Dimensions dimensions)
     if (picture == NULL) 
     {
         malloc_error();
+        /* unreachable but the compiler does not know it */
+        return NULL;
     }
-
-    for (i = 0; i < height; i++) 
+    else
     {
-        picture[i] = malloc(width * sizeof(Cell));
-        if (picture[i] == NULL) 
+        for (i = 0; i < height; i++) 
         {
-            for (k = 0; k < i; k++) 
+            picture[i] = malloc(width * sizeof(Cell));
+            if (picture[i] == NULL) 
             {
-                free(picture[k]); 
+                for (k = 0; k < i; k++) 
+                {
+                    free(picture[k]); 
+                }
+                free(picture);
+                malloc_error();
             }
-            free(picture); 
-            malloc_error();
         }
+        return picture;
     }
 
-    return picture;
 }
 
 void init_picture(Cell **picture, Dimensions dimensions)
@@ -131,12 +135,11 @@ int get_trunk_width(int tree_height)
     {
         return 5;
     }
-    /* if invalid tree size */
     else
     {
         size_error("Invalid tree size");
         /* unreachable but the compiler does not know it */
-        return -1;
+        return -1; 
     }
 
 }
@@ -159,10 +162,12 @@ int get_trunk_height(int tree_height)
     {
         return 4;
     }
-    /* if invalid tree size */
-    size_error("Invalid tree size");
-    /* unreachable but the compiler does not know it */
-    return -1;
+    else
+    {
+        size_error("Invalid tree size");
+        /* unreachable but the compiler does not know it */
+        return -1;
+    }
 }
 
 int get_star_height(int tree_height)

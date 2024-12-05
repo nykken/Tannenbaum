@@ -14,7 +14,6 @@ int main(int argc, char* argv[])
 {
 
     int tree_height;
-    int i, j;
     Dimensions dimensions;
     Cell **picture;
     Cell **copy;
@@ -41,24 +40,26 @@ int main(int argc, char* argv[])
         free(picture);
         malloc_error();
     }
-    
-    if (arguments.snow_mode == 'a')
+    else 
     {
-        acid_snow(picture, dimensions);
-    }
-    else if (arguments.snow_mode == 'f')
-    {
-        make_it_snow(picture, copy, dimensions, 1);   
-    }
-    else if (arguments.snow_mode == 'b')
-    {
-        make_it_snow(picture, copy, dimensions, 0);    
-    }
-    else if (arguments.snow_mode == 'n')
-    {
-        print_tree(picture, dimensions);   
+        if (arguments.snow_mode == 'a')
+        {
+            acid_snow(picture, dimensions);
+        }
+        else if (arguments.snow_mode == 'f')
+        {
+            make_it_snow(picture, copy, dimensions, 1);   
+        }
+        else if (arguments.snow_mode == 'b')
+        {
+            make_it_snow(picture, copy, dimensions, 0);    
+        }
+        else if (arguments.snow_mode == 'n')
+        {
+            print_tree(picture, dimensions);   
+        }
+        free_picture(picture, dimensions);
+        free_picture(copy, dimensions);
     }
 
-    free_picture(picture, dimensions);
-    free_picture(copy, dimensions);
 }

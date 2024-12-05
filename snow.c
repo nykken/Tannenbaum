@@ -112,7 +112,7 @@ void make_it_snow(Cell **picture, Cell **copy, Dimensions dimensions, int in_for
         add_snowflakes(copy, dimensions, in_foreground);
         print_tree(copy, dimensions);
         restore_copy(picture, copy, dimensions);
-        usleep(300000);
+        usleep(300000); 
     }
 }
 
