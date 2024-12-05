@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "tree_utility.h"
 #include "snow.h"
 

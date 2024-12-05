@@ -6,7 +6,7 @@
 
 void print_usage(const char *prog_name) 
 {
-    fprintf(stderr, "Usage: %s [-h tree_height] [-s snow_mode]\n", prog_name);
+    fprintf(stderr, "Usage: %s [-t tree_height] [-s snow_mode]\n", prog_name);
     fprintf(stderr, "  -t tree_height   : Tree height (optional, between 3 and 17)\n");
     fprintf(stderr, "  -s snow_mode     : Snow mode (optional, 'a' (acid), 'f' (in foreground), 'b' (in background) or 'n' (none))\n");
 }

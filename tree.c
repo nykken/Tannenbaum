@@ -12,7 +12,6 @@
 
 int main(int argc, char* argv[])
 {
-
     int tree_height;
     Dimensions dimensions;
     Cell **picture;
@@ -61,5 +60,5 @@ int main(int argc, char* argv[])
         free_picture(picture, dimensions);
         free_picture(copy, dimensions);
     }
-
+    return 0;
 }
